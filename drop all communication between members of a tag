@@ -1,0 +1,16 @@
+#Creates tag matrix to assign tags to members
+tag server
+	id 100
+	default No
+	enum 0 No
+	enum 1 Yes
+;
+
+# if both members are not servers 
+break 
+	tand server 0
+;
+
+
+#else
+accept;
