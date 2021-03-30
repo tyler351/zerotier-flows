@@ -1,0 +1,16 @@
+# Create a tag for which department someone is in
+tag department
+  id 1000                 # arbitrary, but must be unique
+  enum 100 sales          # has no meaning to filter, but used in UI to offer a selection
+  enum 200 engineering
+  enum 300 support
+  enum 400 manufacturing
+;
+
+
+### Example filter
+# Allow Windows CIFS and netbios between computers in the same department using a tag
+accept
+  ipprotocol tcp
+  and tdiff department 0  # difference between department tags is 0, meaning they match
+  and dport 139 or dport 445
